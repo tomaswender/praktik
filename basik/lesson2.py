@@ -18,17 +18,18 @@ def print_type():
 
 
 def obmen():
-    a = ["a", 1, True, 1.5, None]
+    answer = input('Введите значения через запятую: ')
+    a = answer.split(',')
     a_len = 0
     if len(a)%2 == 0:
         a_len = len(a)
     else:
-        a_len = a_len-1      
-    for i in range(0, a_len-1):
+        a_len = len(a)-1      
+    for i in range(0, a_len-1, 2):
         a[i], a[i+1] = a[i+1], a[i]
     print(a)
 
-# obmen()
+obmen()
 
 
 #3. Пользователь вводит месяц в виде целого числа от 1 до 12. Сообщить к какому времени года относится месяц (зима, весна, лето, осень). 
