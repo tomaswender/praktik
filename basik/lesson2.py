@@ -25,7 +25,7 @@ def obmen():
         a_len = len(a)
     else:
         a_len = len(a)-1      
-    for i in range(0, a_len-1, 2):
+    for i in range(0, a_len, 2):
         a[i], a[i+1] = a[i+1], a[i]
     print(a)
 
