@@ -96,7 +96,7 @@ def func_sum():
 #Например, в первом задании выводим целые числа, начиная с 3, а при достижении числа 10 завершаем цикл. 
 # Во втором также необходимо предусмотреть условие, при котором повторение элементов списка будет прекращено.
 
-def count(start, stop):
+def func_list(start, stop):
     my_list = []
     for i in it.count(start):
         if i%2 == 0:
@@ -113,8 +113,9 @@ def shadow(lists, counts):
             break
     print(new_list)
 
-lists = count(1, 10)
-# shadow(lists, 20)
+lists = func_list(1, 10)
+shadow(lists, 20)
+
 
 
 
