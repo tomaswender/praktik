@@ -152,3 +152,23 @@ def school():
 #[{"firm_1": 5000, "firm_2": 3000, "firm_3": 1000}, {"average_profit": 2000}]
 
 #Подсказка: использовать менеджеры контекста.
+
+
+def firm():
+    way="folder_lesson5\my_file7.txt"
+    with open(way, encoding = 'utf-8') as firms:
+        my_list = []
+        profit = 0
+        firm_profit = 0
+        for line in firms:
+            my_set = line.split(' ')
+            my_dict = {my_set[0] : (int(my_set[2])-int(my_set[3]))}
+            my_list.append(my_dict)
+            if int(my_set[2])-int(my_set[3]) >0:
+                profit += int(my_set[2])-int(my_set[3])
+                firm_profit += 1
+        my_list.append({"average_profit": round(profit/firm_profit)})
+        print(my_list) 
+
+
+#firm()        
