@@ -173,4 +173,4 @@ def firm():
     with open('folder_lesson5\json_list.json', 'w', encoding = 'utf-8')  as j:
         json.dump(my_list, j)
     
-firm()        
+#firm()        
