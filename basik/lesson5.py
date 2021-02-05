@@ -1,4 +1,5 @@
 import re
+import json
 
 
 
@@ -169,6 +170,7 @@ def firm():
                 firm_profit += 1
         my_list.append({"average_profit": round(profit/firm_profit)})
         print(my_list) 
-
-
-#firm()        
+    with open('folder_lesson5\json_list.json', 'w', encoding = 'utf-8')  as j:
+        json.dump(my_list, j)
+    
+firm()        
