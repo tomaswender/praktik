@@ -110,10 +110,10 @@ class Cell:
         return '\n'.join(arr)
 
 
-c1 = Cell(7)
-c2 = Cell(8)
-c3 = Cell(5)
+# c1 = Cell(7)
+# c2 = Cell(8)
+# c3 = Cell(5)
 
-s = c1*c2
-print(Cell(s).make_order(s, 6))
+# s = c1*c2
+# print(Cell(s).make_order(s, 6))
 
