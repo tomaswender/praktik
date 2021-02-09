@@ -48,11 +48,23 @@ y = [[5,8,1], [6,7,3], [4,5,9]]
 # проверить на практике работу декоратора @property.
 
 class Clothes:
-    pass
+    def __init__(self, v=0, h=0):
+        self.v = v
+        self.h = h
 class Suit(Clothes):
-    pass
+    def cost(self):
+        outlay = self.v/6.5 + 0.5
+        return outlay
 class Сoat(Clothes):
-    pass
+    def cost(self):
+        outlay = 2 * self.h + 0.3
+        return outlay
+
+# c = Сoat(h=5)
+# s = Suit(v=5)
+# print(c.cost()+s.cost())
+
+
 
 
 
@@ -70,3 +82,38 @@ class Сoat(Clothes):
 # Если ячеек на формирование ряда не хватает, то в последний ряд записываются все оставшиеся.
 #Например, количество ячеек клетки равняется 12, количество ячеек в ряду — 5. Тогда метод make_order() вернет строку: *****\n*****\n**.
 #Или, количество ячеек клетки равняется 15, количество ячеек в ряду — 5. Тогда метод make_order() вернет строку: *****\n*****\n*****.
+
+class Cell:
+    def __init__(self, a):
+        self.a = a
+    def __add__(self, other):
+        result = self.a + other.a
+        return result
+    def __sub__(self, other):
+        if (self.a-other.a)>0:
+            result = self.a - other.a
+            return result
+        else:
+            print('Такая операция невозможна')
+            return 0
+    def __mul__(self, other):
+        result = self.a * other.a
+        return result
+    def __truediv__(self, other):
+        result = self.a / other.a
+        return round(result)
+    def make_order(self, c, b):
+        arr = []
+        for i in range(0, (round(c/b))):
+            arr.append("*"*int(b))
+        arr.append("*"*int(c%b))
+        return '\n'.join(arr)
+
+
+c1 = Cell(7)
+c2 = Cell(8)
+c3 = Cell(5)
+
+s = c1*c2
+print(s.make_order(s, 6))
+
