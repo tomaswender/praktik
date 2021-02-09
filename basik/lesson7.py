@@ -115,5 +115,5 @@ c2 = Cell(8)
 c3 = Cell(5)
 
 s = c1*c2
-print(s.make_order(s, 6))
+print(Cell(s).make_order(s, 6))
 
