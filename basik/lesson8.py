@@ -6,7 +6,34 @@
 # Второй, с декоратором @staticmethod, должен проводить валидацию числа, месяца и года (например, месяц — от 1 до 12). 
 # Проверить работу полученной структуры на реальных данных.
 
+class Date:
+    def __init__(self, date):
+        self.date = date
+    @classmethod
+    def prep_date(cls, obj):
+        results = obj.date.split('-')
+        result = [int(i) for i in results]
+        return result
+    @staticmethod
+    def valid(obj):
+        if obj[1] in range(1,13):
+            if (obj[2]%4 == 0) & (obj[1] == 2) & (obj[0]<=29):
+                return obj
+            if (obj[2]%4 != 0) & (obj[1] == 2) & (obj[0]<=28):
+                return obj
+            if (obj[1]%2 == 0) & (obj[0]<=30):
+                return obj
+            if (obj[1]%2 != 0) & (obj[0]<=31):
+                return obj
+            else:
+                return 'Не корректный день'
+        else:
+            return 'Не корректный месяц'    
 
+
+# d = Date('30-04-2003') 
+# prep = Date.prep_date(d)
+# print(Date.valid(prep))   
 
 # 2. Создайте собственный класс-исключение, обрабатывающий ситуацию деления на нуль. Проверьте его работу на данных, вводимых пользователем.
 #  При вводе пользователем нуля в качестве делителя программа должна корректно обработать эту ситуацию и не завершиться с ошибкой.
