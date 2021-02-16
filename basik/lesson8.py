@@ -89,7 +89,53 @@ class Error:
 # А также класс «Оргтехника», который будет базовым для классов-наследников. Эти классы — конкретные типы оргтехники (принтер, сканер, ксерокс). 
 # В базовом классе определить параметры, общие для приведенных типов. В классах-наследниках реализовать параметры, уникальные для каждого типа оргтехники.
 
+class Storage:
+    warehouse = []
+    def __init__(self, types, count, place, name):
+        self.types = types
+        self.count = count
+        self.place = place
+        self.name = name
+    @classmethod
+    def receipt(cls, obj):
+        my_dict = {
+            'types' : obj.types,
+            'count' : obj.count,
+            'place' : obj.place,
+            'name' : obj.name          
+        }
+        cls.warehouse.append(my_dict)
+        print(cls.warehouse)
+    def update(self, id, key, value):
+        self.warehouse[id][key]=value
+        print(self.warehouse)
+class Office:
+    def __init__(self, speed, dpi, name, laser=False):
+        self.speed = speed
+        self.dpi = dpi
+        self.type = name
+        self.laser = laser
+class Printer(Office):
+    def __init__(self, speed, dpi, name, volume, paper, laser=False):
+        super().__init__(speed, dpi, name, laser=laser)
+        self.volume = volume
+        self.paper = paper             
+class Scanner(Office):
+    def __init__(self, speed, dpi, name, resolution, laser=False):
+        super().__init__(speed, dpi, name, laser=laser)
+        self.resolution = resolution
+class Copier(Office):
+    def __init__(self, speed, dpi, name, network=False, laser=False):
+        super().__init__(speed, dpi, name, laser=laser)
+        self.network = network
 
+s = Storage('Printer', 10, 'home', 'HP')
+Storage.receipt(s)
+s.update(0, 'count', 2)
+
+
+# дальнейшее выполнение продолжить не могу, не могу увидеть реализацию кроме как с БД по указанному задание, проверку на наличие только цыфр в колличестве не делал
+# потому что она есть в предыдущем задании 
 
 # 5. Продолжить работу над первым заданием. Разработать методы, отвечающие за приём оргтехники на склад и передачу в определенное подразделение компании. 
 # Для хранения данных о наименовании и количестве единиц оргтехники, а также других данных, можно использовать любую подходящую структуру, например словарь.
@@ -105,3 +151,5 @@ class Error:
 # 7. Реализовать проект «Операции с комплексными числами». 
 # Создайте класс «Комплексное число», реализуйте перегрузку методов сложения и умножения комплексных чисел.
 #  Проверьте работу проекта, создав экземпляры класса (комплексные числа) и выполнив сложение и умножение созданных экземпляров. Проверьте корректность полученного результата.
+
+# не знаю что такое комплексные числа, в математике плохо понимаю
